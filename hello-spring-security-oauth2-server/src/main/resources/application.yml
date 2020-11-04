@@ -1,13 +1,12 @@
 spring:
   application:
-    name: oauth2-server
+    name: oauth2-resource
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.jdbc.Driver
-    password: 8840580
+    url: jdbc:mysql://47.103.43.36:3306/oauth2?useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: root
-#    只有oauth2框架识别这个属性   但是datasource没有这个属性
-    jdbc-url: jdbc:mysql://127.0.0.1:3306/oath2?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    password: 123456
     hikari:
       minimum-idle: 5
       idle-timeout: 600000
@@ -17,19 +16,8 @@ spring:
       max-lifetime: 1800000
       connection-timeout: 30000
       connection-test-query: SELECT 1
-
-
 server:
-  port: 80
-
-#mybatisplus
-mybatis-plus:
-  global-config:
-    db-config:
-      id-type: id_worker
-      capital-mode: true
-
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-
-  mapper-locations: classpath:/mapper/*Mapper.xml
+  port: 8080
+#mybatis:
+#  type-aliases-package: com.aodiv.spring.security.oauth2.server.domain
+#  mapper-locations: classpath:mapper/*.xml
